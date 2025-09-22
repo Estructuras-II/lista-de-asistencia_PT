@@ -11,7 +11,7 @@ typedef struct Alumno {
     struct Alumno *siguiente;
 } Alumno;
 
-/* Prototipos */
+
 Alumno* crearAlumno(int id, const char *nombre);
 void insertarAlumno(Alumno **inicio, int id, const char *nombre);
 void pasarLista(Alumno *inicio, int dia);
@@ -49,7 +49,7 @@ void insertarAlumno(Alumno **inicio, int id, const char *nombre) {
 void pasarLista(Alumno *inicio, int dia) {
     Alumno *t = inicio;
     char linea[16];
-    printf("\nPasando lista para el día %d:\n", dia);
+    printf("\nPasando lista para el dia %d:\n", dia);
 
     while (t != NULL) {
         printf("¿El alumno %s (ID %d) esta presente? (s/n): ", t->nombre, t->id);
@@ -62,7 +62,7 @@ void pasarLista(Alumno *inicio, int dia) {
     }
 }
 
-/* Mostrar estado acumulado */
+
 void mostrarLista(Alumno *inicio) {
     Alumno *t = inicio;
     puts("\n Reporte de asistencia");
@@ -83,7 +83,7 @@ void guardarAsistencia(Alumno *inicio, int dia) {
     time_t now = time(NULL);
     struct tm *fecha = localtime(&now);
 
-    fprintf(f, "\n--- Día %d (%02d/%02d/%04d) ---\n",
+    fprintf(f, "\n--- Dia %d (%02d/%02d/%04d) ---\n",
             dia, fecha->tm_mday, fecha->tm_mon + 1, fecha->tm_year + 1900);
 
     Alumno *t = inicio;
@@ -139,7 +139,7 @@ do {
                 dia++;
                 pasarLista(lista, dia);
                 guardarAsistencia(lista, dia);
-                printf("✅ Pase de lista guardado en 'asistencia.txt'.\n");
+                printf("Pase de lista guardado en 'asistencia.txt'.\n");
                 break;
             case 2:
                 mostrarLista(lista);
